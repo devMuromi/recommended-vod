@@ -17,5 +17,3 @@ WORKDIR /app
 COPY --from=builder /app ./
 ## application 실행
 CMD ["npm", "run", "start:prod"]
-
-a

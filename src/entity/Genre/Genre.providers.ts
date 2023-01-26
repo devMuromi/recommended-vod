@@ -1,10 +1,10 @@
 import { DataSource } from 'typeorm';
-import { platform } from './Genre.entitiy';
+import { Genre } from './Genre.entitiy';
 
-export const platformProviders = [
+export const GenreProviders = [
     {
-        provide: 'platform_REPOSITORY',
-        useFactory: (dataSource: DataSource) => dataSource.getRepository(platform),
+        provide: 'Genre_REPOSITORY',
+        useFactory: (dataSource: DataSource) => dataSource.getRepository(Genre),
         inject: ['DATA_SOURCE'],
     },
 ];

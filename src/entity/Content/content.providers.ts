@@ -1,10 +1,10 @@
 import { DataSource } from 'typeorm';
-import { VOD } from './content.entitiy';
+import { Content } from './content.entitiy';
 
-export const VODProviders = [
+export const ContentProviders = [
     {
-        provide: 'VOD_REPOSITORY',
-        useFactory: (dataSource: DataSource) => dataSource.getRepository(VOD),
+        provide: 'CONTENT_REPOSITORY',
+        useFactory: (dataSource: DataSource) => dataSource.getRepository(Content),
         inject: ['DATA_SOURCE'],
     },
 ];

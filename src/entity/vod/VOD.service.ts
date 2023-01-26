@@ -1,15 +1,15 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { platform } from './platform.entitiy';
+import { VOD } from './VOD.entitiy';
 
 @Injectable()
-export class platformService {
+export class VODService {
     constructor(
-        @Inject('PLATFORM_REPOSITORY')
-        private platformRepository: Repository<platform>,
+        @Inject('VOD_REPOSITORY')
+        private VODRepository: Repository<VOD>,
     ) {}
 
-    async findAll(): Promise<platform[]> {
-        return this.platformRepository.find();
+    async findAll(): Promise<VOD[]> {
+        return this.VODRepository.find();
     }
 }

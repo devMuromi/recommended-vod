@@ -1,15 +1,15 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { platform } from './Category.entitiy';
+import { Category } from './Category.entitiy';
 
 @Injectable()
-export class platformService {
+export class CategoryService {
     constructor(
-        @Inject('PLATFORM_REPOSITORY')
-        private platformRepository: Repository<platform>,
+        @Inject('CATEGORY_REPOSITORY')
+        private CategoryRepository: Repository<Category>,
     ) {}
 
-    async findAll(): Promise<platform[]> {
-        return this.platformRepository.find();
+    async findAll(): Promise<Category[]> {
+        return this.CategoryRepository.find();
     }
 }

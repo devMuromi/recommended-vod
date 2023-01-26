@@ -5,6 +5,6 @@ export class platform {
     @PrimaryGeneratedColumn()
     platform_id: number;
 
-    @Column()
+    @Column({ length: 500 })
     Name: string;
 }

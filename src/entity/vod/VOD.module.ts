@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from '../database/database.module';
-import { platformProviders } from './Platform.providers';
-import { platformService } from './platform.service';
+import { DatabaseModule } from '../../database/database.module';
+import { VODProviders } from './VOD.providers';
+import { VODService } from './VOD.service';
 
 @Module({
     imports: [DatabaseModule],
     providers: [
-        ...platformProviders,
-        platformService,
+        ...VODProviders,
+        VODService,
     ],
 })
 export class platformModule {}

@@ -1,10 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class platform {
+export class Genre {
     @PrimaryGeneratedColumn()
-    platform_id: number;
+    Genre_id: number;
 
-    @Column()
+    @Column({ length: 500 })
     Name: string;
 }

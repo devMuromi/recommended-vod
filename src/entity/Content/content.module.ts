@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from '../database/database.module';
-import { platformProviders } from './Platform.providers';
-import { platformService } from './platform.service';
+import { DatabaseModule } from '../../database/database.module';
+import { ContentProviders } from './content.providers';
+import { ContentService } from './content.service';
 
 @Module({
     imports: [DatabaseModule],
     providers: [
-        ...platformProviders,
-        platformService,
+        ...ContentProviders,
+        ContentService,
     ],
 })
-export class platformModule {}
+export class ContentModule {}

@@ -1,10 +1,26 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 
 @Entity()
-export class platform {
+export class VOD {
     @PrimaryGeneratedColumn()
-    platform_id: number;
+    VOD_id: number;
 
-    @Column()
-    Name: string;
+    @Column('int')
+    type: number;
+
+    @Column('int')
+    buy_price: number;
+
+    @Column('int')
+    rent_period: number;
+
+    @Column('int')
+    platform_ID: number;
+
+    @Column('int')
+    content_ID: number;
+
+    @Column({ length: 500 })
+    VOD_name: string;
+
 }

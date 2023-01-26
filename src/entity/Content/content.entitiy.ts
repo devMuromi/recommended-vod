@@ -1,10 +1,19 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 
 @Entity()
-export class platform {
+export class Content {
     @PrimaryGeneratedColumn()
-    platform_id: number;
+    Content_id: number;
 
-    @Column()
-    Name: string;
+    @Column({ length: 500 })
+    Title: string;
+
+    @Column('int')
+    Category_ID: number;
+
+    @Column('int')
+    Genre_ID: number;
+
+    @Column({ length: 500 })
+    Image_URL: string;
 }

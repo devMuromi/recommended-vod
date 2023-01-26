@@ -17,9 +17,32 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-  },
+    "editor.fontFamily": "D2Coding, Consolas, 'Courier New', monospace",
+    "workbench.colorTheme": "Default Light+",
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "python.formatting.provider": "black",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnType": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "C_Cpp.clang_format_style": "{ IndentWidth: 4, ColumnLimit: 80 }",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "editor.inlineSuggest.enabled": true,
+    "editor.minimap.enabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.languageServer": "Pylance",
+    "prettier.printWidth": 256,
+    "prettier.tabWidth": 4,
+    "editor.formatOnSave": true,
+    "terminal.integrated.defaultProfile.windows": "Command Prompt"
+},
 };

@@ -5,7 +5,7 @@ import { UpdateContentDto } from './dto/update-content.dto';
 @Injectable()
 export class ContentsService {
   create(createContentDto: CreateContentDto) {
-    return 'This action adds a new content';
+    return `Content ${createContentDto.title} created(actually not)`;
   }
 
   findAll() {

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ContentsService } from './contents.service';
 import { CreateContentDto } from './dto/create-content.dto';
 import { UpdateContentDto } from './dto/update-content.dto';
@@ -8,7 +16,8 @@ export class ContentsController {
   constructor(private readonly contentsService: ContentsService) {}
 
   @Post()
-  create(@Body() createContentDto: CreateContentDto) {
+  createContent(@Body() createContentDto: CreateContentDto) {
+    console.log('createContentDto: ', createContentDto);
     return this.contentsService.create(createContentDto);
   }
 

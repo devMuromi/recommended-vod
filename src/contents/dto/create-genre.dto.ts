@@ -1,3 +1,3 @@
 export class CreateGenreDto {
-  readonly Name: string;
+  readonly name: string;
 }

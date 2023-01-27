@@ -1,3 +1,3 @@
 export class CreateContentDto {
-  readonly Name: string;
+  readonly name: string;
 }

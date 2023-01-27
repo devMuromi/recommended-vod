@@ -1,3 +1,3 @@
-export class CreateContentDto {
-  readonly Name: string;
+export class CreateCategoryDto {
+  readonly name: string;
 }

@@ -4,7 +4,7 @@ import { CreateCategoryDto } from './dto/create-category.dto';
 import { CreateGenreDto } from './dto/create-genre.dto';
 
 @Injectable()
-export class ContentsService {
+export class ContentService {
   create(createContentDto: CreateContentDto) {
     return `Content ${createContentDto.title} created(actually not)`;
   }

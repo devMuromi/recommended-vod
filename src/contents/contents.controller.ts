@@ -11,7 +11,7 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 import {
-  ContentsService,
+  ContentService,
   CategoriesService,
   GenresService,
 } from './contents.service';
@@ -20,7 +20,7 @@ import { CreateCategoryDto } from './dto/create-category.dto';
 
 @Controller('contents')
 export class ContentsController {
-  constructor(private readonly contentsService: ContentsService) {}
+  constructor(private readonly contentsService: ContentService) {}
 
   @Post()
   create(@Body() createContentDto: CreateContentDto) {

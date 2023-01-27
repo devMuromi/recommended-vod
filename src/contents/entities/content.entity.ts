@@ -6,27 +6,7 @@ import {
   OneToMany,
   ManyToOne,
 } from 'typeorm';
-
-@Entity()
-export class Content {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column({ length: 128, unique: true, nullable: false })
-  title: string;
-
-  @Column({ length: 256, nullable: true })
-  image_url: string;
-
-  @ManyToOne((type) => Category, (category) => category.contents)
-  category: Category;
-
-  @ManyToOne((type) => Genre, (genre) => genre.contents)
-  genre: Genre;
-
-  @OneToMany((type) => VOD, (vod) => vod.content)
-  vods: VOD[];
-}
+import { VOD } from '../../platforms/entities/platform.entity';
 
 @Entity()
 export class Category {
@@ -53,31 +33,22 @@ export class Genre {
 }
 
 @Entity()
-export class Platform {
+export class Content {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 128, unique: true, nullable: false })
-  name: string;
+  title: string;
 
-  @OneToMany((type) => VOD, (VOD) => VOD.platform)
+  @Column({ length: 256, nullable: true })
+  image_url: string;
+
+  @ManyToOne((type) => Category, (category) => category.contents)
+  category: Category;
+
+  @ManyToOne((type) => Genre, (genre) => genre.contents)
+  genre: Genre;
+
+  @OneToMany((type) => VOD, (vod) => vod.content)
   vods: VOD[];
-}
-
-@Entity()
-export class VOD {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column({ length: 32 })
-  type: string;
-
-  @Column('int')
-  rent_period: number;
-
-  @ManyToOne((type) => Platform, (platform) => platform.vods)
-  platform: Platform;
-
-  @ManyToOne((type) => Content, (content) => content.vods)
-  content: Content;
 }

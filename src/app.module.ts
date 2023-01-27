@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ContentsModule } from './contents/contents.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PlatformModule } from './platform/platform.module';
+import { PlatformModule } from './platforms/platform.module';
 import { ParserModule } from './parser/parser.module';
 
 @Module({
@@ -14,9 +14,9 @@ import { ParserModule } from './parser/parser.module';
       // port: 3306,
       // username: 'root',
       // password: 'root',
-      database: 'r-vod',
+      database: 'r-vod.sqlite3',
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: true, // Set false in production
     }),
     ContentsModule,
     PlatformModule,

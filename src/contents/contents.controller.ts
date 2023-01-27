@@ -21,7 +21,7 @@ export class ContentsController {
   constructor(private readonly contentsService: ContentsService) {}
 
   @Post()
-  createContent(@Body() createContentDto: CreateContentDto) {
+  create(@Body() createContentDto: CreateContentDto) {
     console.log('createContentDto: ', createContentDto);
     return this.contentsService.create(createContentDto);
   }
@@ -52,7 +52,7 @@ export class CategoryController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Post()
-  createContent(@Body() createCategoryDto: CreateCategoryDto) {
+  create(@Body() createCategoryDto: CreateCategoryDto) {
     return this.categoriesService.create(createCategoryDto);
   }
 
@@ -82,7 +82,7 @@ export class GenreController {
   constructor(private readonly genreService: GenresService) {}
 
   @Post()
-  createContent(@Body() createCategoryDto: CreateCategoryDto) {
+  create(@Body() createCategoryDto: CreateCategoryDto) {
     return this.genreService.create(createCategoryDto);
   }
 

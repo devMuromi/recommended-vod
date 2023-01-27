@@ -4,10 +4,7 @@ import { ContentProviders } from './content.providers';
 import { ContentService } from './content.service';
 
 @Module({
-    imports: [DatabaseModule],
-    providers: [
-        ...ContentProviders,
-        ContentService,
-    ],
+  imports: [DatabaseModule],
+  providers: [...ContentProviders, ContentService],
 })
 export class ContentModule {}

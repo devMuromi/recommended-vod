@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CreateContentDto } from './dto/create-content.dto';
 import { UpdateContentDto } from './dto/update-content.dto';
+import { CreateCategoryDto } from './dto/create-category.dto';
+import { CreateGenreDto } from './dto/create-genre.dto';
 
 @Injectable()
 export class ContentsService {
@@ -22,5 +24,51 @@ export class ContentsService {
 
   remove(id: number) {
     return `This action removes a #${id} content`;
+  }
+}
+
+@Injectable()
+export class CategoriesService {
+  create(CreateCategoryDto: CreateCategoryDto) {
+    return `Category ${CreateCategoryDto.name} created(actually not)`;
+  }
+
+  findAll() {
+    return `This action returns all cagegories`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} category`;
+  }
+
+  // update(id: number, updateContentDto: UpdateContentDto) {
+  //   return `This action updates a #${id} category`;
+  // }
+
+  remove(id: number) {
+    return `This action removes a #${id} category`;
+  }
+}
+
+@Injectable()
+export class GenresService {
+  create(CreateCategoryDto: CreateGenreDto) {
+    return `Genre ${CreateGenreDto.name} created(actually not)`;
+  }
+
+  findAll() {
+    return `This action returns all genres`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} genre`;
+  }
+
+  // update(id: number, updateContentDto: UpdateContentDto) {
+  //   return `This action updates a #${id} genre`;
+  // }
+
+  remove(id: number) {
+    return `This action removes a #${id} genre`;
   }
 }

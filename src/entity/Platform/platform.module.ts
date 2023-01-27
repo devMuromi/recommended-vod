@@ -4,10 +4,7 @@ import { platformProviders } from './Platform.providers';
 import { platformService } from './platform.service';
 
 @Module({
-    imports: [DatabaseModule],
-    providers: [
-        ...platformProviders,
-        platformService,
-    ],
+  imports: [DatabaseModule],
+  providers: [...platformProviders, platformService],
 })
 export class platformModule {}

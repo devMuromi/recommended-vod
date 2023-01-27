@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ContentsModule } from './contents/contents.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PlatformModule } from './platform/platform.module';
+import { ParserModule } from './parser/parser.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { PlatformModule } from './platform/platform.module';
       synchronize: true,
     }),
     PlatformModule,
+    ParserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

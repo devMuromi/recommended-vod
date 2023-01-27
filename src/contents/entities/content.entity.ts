@@ -19,7 +19,7 @@ export class Content {
   category: Category;
 
   @ManyToOne((type) => Genre, (genre) => genre.contents)
-  genre: Category;
+  genre: Genre;
 
   @Column({ length: 500 })
   Image_URL: string;

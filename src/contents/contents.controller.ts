@@ -7,7 +7,11 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ContentsService, CategoriesService } from './contents.service';
+import {
+  ContentsService,
+  CategoriesService,
+  GenresService,
+} from './contents.service';
 import { CreateContentDto } from './dto/create-content.dto';
 import { UpdateContentDto } from './dto/update-content.dto';
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -45,30 +49,60 @@ export class ContentsController {
 
 @Controller('category')
 export class CategoryController {
-  constructor(private readonly contentsService: CategoriesService) {}
+  constructor(private readonly categoriesService: CategoriesService) {}
 
   @Post()
   createContent(@Body() createCategoryDto: CreateCategoryDto) {
-    return this.contentsService.create(createCategoryDto);
+    return this.categoriesService.create(createCategoryDto);
   }
 
   @Get()
   findAll() {
-    return this.contentsService.findAll();
+    return this.categoriesService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.contentsService.findOne(+id);
+    return this.categoriesService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateContentDto: UpdateContentDto) {
-    return this.contentsService.update(+id, updateContentDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateContentDto: UpdateContentDto) {
+  //   return this.categoriesService.update(+id, updateContentDto);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.contentsService.remove(+id);
+    return this.categoriesService.remove(+id);
+  }
+}
+
+@Controller('genre')
+export class GenreController {
+  constructor(private readonly genreService: GenresService) {}
+
+  @Post()
+  createContent(@Body() createCategoryDto: CreateCategoryDto) {
+    return this.genreService.create(createCategoryDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.genreService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.genreService.findOne(+id);
+  }
+
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateContentDto: UpdateContentDto) {
+  //   return this.genreService.update(+id, updateContentDto);
+  // }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.genreService.remove(+id);
   }
 }

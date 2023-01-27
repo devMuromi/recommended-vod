@@ -4,10 +4,7 @@ import { GenreProviders } from './Genre.providers';
 import { GenreService } from './Genre.service';
 
 @Module({
-    imports: [DatabaseModule],
-    providers: [
-        ...GenreProviders,
-        GenreService,
-    ],
+  imports: [DatabaseModule],
+  providers: [...GenreProviders, GenreService],
 })
 export class GenreModule {}

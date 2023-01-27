@@ -24,7 +24,6 @@ export class ContentsController {
 
   @Post()
   create(@Body() createContentDto: CreateContentDto) {
-    console.log('createContentDto: ', createContentDto);
     return this.contentsService.create(createContentDto);
   }
 

@@ -4,6 +4,6 @@ import { ContentsController } from './contents.controller';
 
 @Module({
   controllers: [ContentsController],
-  providers: [ContentsService]
+  providers: [ContentsService],
 })
 export class ContentsModule {}

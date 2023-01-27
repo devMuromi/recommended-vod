@@ -12,8 +12,11 @@ export class Content {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 500 })
+  @Column({ length: 128, unique: true, nullable: false })
   title: string;
+
+  @Column({ length: 256, nullable: true })
+  image_url: string;
 
   @ManyToOne((type) => Category, (category) => category.contents)
   category: Category;
@@ -23,18 +26,15 @@ export class Content {
 
   @OneToMany((type) => VOD, (vod) => vod.content)
   vods: VOD[];
-
-  @Column({ length: 500 })
-  Image_URL: string;
 }
 
 @Entity()
 export class Category {
   @PrimaryGeneratedColumn()
-  Category_id: number;
+  id: number;
 
-  @Column({ length: 500 })
-  Name: string;
+  @Column({ length: 128, unique: true, nullable: false })
+  name: string;
 
   @OneToMany((type) => Content, (content) => content.category)
   contents: Content[];
@@ -43,10 +43,10 @@ export class Category {
 @Entity()
 export class Genre {
   @PrimaryGeneratedColumn()
-  Genre_id: number;
+  id: number;
 
-  @Column({ length: 500 })
-  Name: string;
+  @Column({ length: 128, unique: true, nullable: false })
+  name: string;
 
   @OneToMany((type) => Content, (content) => content.genre)
   contents: Content[];
@@ -55,10 +55,10 @@ export class Genre {
 @Entity()
 export class Platform {
   @PrimaryGeneratedColumn()
-  Platform_id: number;
+  id: number;
 
-  @Column({ length: 500 })
-  Name: string;
+  @Column({ length: 128, unique: true, nullable: false })
+  name: string;
 
   @OneToMany((type) => VOD, (VOD) => VOD.platform)
   vods: VOD[];
@@ -67,9 +67,9 @@ export class Platform {
 @Entity()
 export class VOD {
   @PrimaryGeneratedColumn()
-  VOD_id: number;
+  id: number;
 
-  @Column({ length: 500 })
+  @Column({ length: 32 })
   type: string;
 
   @Column('int')
@@ -80,7 +80,4 @@ export class VOD {
 
   @ManyToOne((type) => Content, (content) => content.vods)
   content: Content;
-
-  @Column({ length: 500 })
-  vod_name: string;
 }

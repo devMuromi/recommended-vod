@@ -1,20 +1,29 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { DataSource, Repository } from 'typeorm';
+
 import { CreateContentDto, UpdateContentDto } from './dto/content.dto';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { CreateGenreDto } from './dto/create-genre.dto';
+import { Content } from './entities/content.entity';
 
 @Injectable()
 export class ContentService {
-  create(createContentDto: CreateContentDto) {
-    return `Content ${createContentDto.title} created(actually not)`;
+  constructor(
+    @InjectRepository(Content)
+    private contentRepository: Repository<Content>,
+  ) {}
+
+  create(content: any) {
+    return this.contentRepository.save(content);
   }
 
-  findAll() {
-    return `This action returns all contents`;
+  findAll(): Promise<Content[]> {
+    return this.contentRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} content`;
+  findOne(id: number): Promise<Content> {
+    return this.contentRepository.findOneBy({ id });
   }
 
   update(id: number, updateContentDto: UpdateContentDto) {

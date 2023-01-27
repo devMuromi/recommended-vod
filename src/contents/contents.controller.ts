@@ -6,14 +6,16 @@ import {
   Patch,
   Param,
   Delete,
+  UsePipes,
+  ValidationPipe,
+  ParseIntPipe,
 } from '@nestjs/common';
 import {
   ContentsService,
   CategoriesService,
   GenresService,
 } from './contents.service';
-import { CreateContentDto } from './dto/create-content.dto';
-import { UpdateContentDto } from './dto/update-content.dto';
+import { CreateContentDto, UpdateContentDto } from './dto/content.dto';
 import { CreateCategoryDto } from './dto/create-category.dto';
 
 @Controller('contents')
@@ -32,8 +34,8 @@ export class ContentsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.contentsService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.contentsService.findOne(id);
   }
 
   @Patch(':id')

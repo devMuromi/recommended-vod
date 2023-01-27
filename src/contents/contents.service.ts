@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateContentDto } from './dto/create-content.dto';
-import { UpdateContentDto } from './dto/update-content.dto';
+import { CreateContentDto, UpdateContentDto } from './dto/content.dto';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { CreateGenreDto } from './dto/create-genre.dto';
 

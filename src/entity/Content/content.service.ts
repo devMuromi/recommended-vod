@@ -4,12 +4,12 @@ import { Content } from './content.entitiy';
 
 @Injectable()
 export class ContentService {
-    constructor(
-        @Inject('CONTENT_REPOSITORY')
-        private ContentRepository: Repository<Content>,
-    ) {}
+  constructor(
+    @Inject('CONTENT_REPOSITORY')
+    private ContentRepository: Repository<Content>,
+  ) {}
 
-    async findAll(): Promise<Content[]> {
-        return this.ContentRepository.find();
-    }
+  async findAll(): Promise<Content[]> {
+    return this.ContentRepository.find();
+  }
 }

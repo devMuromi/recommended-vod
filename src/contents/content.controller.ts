@@ -11,7 +11,11 @@ export class ContentController {
 
   @Post()
   create(@Body() createContentDto: CreateContentDto) {
+<<<<<<< HEAD:src/contents/content.controller.ts
     return this.contentService.create(createContentDto);
+=======
+    return this.contentsService.create(createContentDto);
+>>>>>>> 67afdc3c2c7043a29eded708415a783ad8d2583b:src/contents/contents.controller.ts
   }
 
   @Get()

@@ -1,86 +1,74 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  UsePipes,
-  ValidationPipe,
-  ParseIntPipe,
-} from '@nestjs/common';
-import {
-  ContentService,
-  CategoriesService,
-  GenresService,
-} from './contents.service';
-import { CreateContentDto, UpdateContentDto } from './dto/content.dto';
-import { CreateCategoryDto } from './dto/create-category.dto';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UsePipes, ValidationPipe, ParseIntPipe } from '@nestjs/common';
 
-@Controller('contents')
-export class ContentsController {
-  constructor(private readonly contentsService: ContentService) {}
+import { ContentService, CategoryService, GenreService } from './content.service';
+import { Content } from './entities/content.entity';
+import { CreateContentDto, UpdateContentDto } from './dto/content.dto';
+import { CreateCategoryDto } from './dto/category.dto';
+
+@Controller('content')
+export class ContentController {
+  constructor(private readonly contentService: ContentService) {}
 
   @Post()
   create(@Body() createContentDto: CreateContentDto) {
-    return this.contentsService.create(createContentDto);
+    return this.contentService.create(createContentDto);
   }
 
   @Get()
   findAll() {
-    return this.contentsService.findAll();
+    return this.contentService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.contentsService.findOne(id);
+  findOne(@Param('id', ParseIntPipe) id: number): Promise<Content> {
+    return this.contentService.findOneById(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateContentDto: UpdateContentDto) {
-    return this.contentsService.update(+id, updateContentDto);
+    return null;
+    // return this.contentService.update(+id, updateContentDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.contentsService.remove(+id);
+    return this.contentService.remove(+id);
   }
 }
 
 @Controller('category')
 export class CategoryController {
-  constructor(private readonly categoriesService: CategoriesService) {}
+  constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
   create(@Body() createCategoryDto: CreateCategoryDto) {
-    return this.categoriesService.create(createCategoryDto);
+    return this.categoryService.create(createCategoryDto);
   }
 
   @Get()
   findAll() {
-    return this.categoriesService.findAll();
+    return this.categoryService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.categoriesService.findOne(+id);
+    return this.categoryService.findOneById(+id);
   }
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateContentDto: UpdateContentDto) {
-  //   return this.categoriesService.update(+id, updateContentDto);
+  //   return this.categoryService.update(+id, updateContentDto);
   // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.categoriesService.remove(+id);
+    return this.categoryService.remove(+id);
   }
 }
 
 @Controller('genre')
 export class GenreController {
-  constructor(private readonly genreService: GenresService) {}
+  constructor(private readonly genreService: GenreService) {}
 
   @Post()
   create(@Body() createCategoryDto: CreateCategoryDto) {
@@ -94,7 +82,7 @@ export class GenreController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.genreService.findOne(+id);
+    return this.genreService.findOneById(+id);
   }
 
   // @Patch(':id')

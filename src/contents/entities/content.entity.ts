@@ -1,12 +1,5 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  ManyToMany,
-  OneToMany,
-  ManyToOne,
-} from 'typeorm';
-import { VOD } from '../../platforms/entities/platform.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, OneToMany, ManyToOne } from 'typeorm';
+import { VOD } from '../../platform/entities/platform.entity';
 
 @Entity()
 export class Category {
@@ -41,7 +34,7 @@ export class Content {
   title: string;
 
   @Column({ length: 256, nullable: true })
-  image_url: string;
+  imageUrl: string;
 
   @ManyToOne((type) => Category, (category) => category.contents)
   category: Category;

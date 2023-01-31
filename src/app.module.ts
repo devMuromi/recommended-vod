@@ -4,8 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ContentsModule } from './contents/contents.module';
-import { PlatformModule } from './platforms/platform.module';
+import { ContentsModule } from './contents/content.module';
+import { PlatformModule } from './platform/platform.module';
 import { ParserModule } from './parser/parser.module';
 
 @Module({

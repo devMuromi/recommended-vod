@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ContentService } from './contents.service';
+import { ContentService } from './content.service';
 
-describe('ContentsService', () => {
+describe('ContentService', () => {
   let service: ContentService;
 
   beforeEach(async () => {

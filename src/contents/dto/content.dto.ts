@@ -1,5 +1,6 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { PartialType } from '@nestjs/mapped-types';
+import { Category, Genre } from '../entities/content.entity';
 
 export class CreateContentDto {
   @IsString()
@@ -9,8 +10,8 @@ export class CreateContentDto {
   @IsString()
   readonly imageUrl: string;
 
-  readonly category: string;
-  readonly genre: string;
+  readonly category: Category;
+  readonly genre: Genre;
 }
 
 export class UpdateContentDto extends PartialType(CreateContentDto) {}

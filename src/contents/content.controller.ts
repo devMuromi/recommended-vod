@@ -20,7 +20,7 @@ export class ContentController {
   }
 
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number): Promise<Content> {
+  findOneById(@Param('id', ParseIntPipe) id: number): Promise<Content> {
     return this.contentService.findOneById(id);
   }
 

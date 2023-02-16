@@ -46,7 +46,7 @@ export class ContentService {
 @Injectable()
 export class CategoryService {
   constructor(
-    @InjectRepository(Content)
+    @InjectRepository(Category)
     private categoryRepository: Repository<Category>,
   ) {}
 
@@ -81,7 +81,7 @@ export class CategoryService {
 @Injectable()
 export class GenreService {
   constructor(
-    @InjectRepository(Content)
+    @InjectRepository(Genre)
     private genreRepository: Repository<Genre>,
   ) {}
   create(createGenreDto: CreateGenreDto) {

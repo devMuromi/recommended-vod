@@ -1,11 +1,4 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  ManyToMany,
-  OneToMany,
-  ManyToOne,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, OneToMany, ManyToOne } from 'typeorm';
 import { Content } from '../../contents/entities/content.entity';
 
 @Entity()
@@ -16,7 +9,7 @@ export class Platform {
   @Column({ length: 128, unique: true, nullable: false })
   name: string;
 
-  @OneToMany((type) => VOD, (VOD) => VOD.platform)
+  @OneToMany((type) => VOD, (vod) => vod.platform)
   vods: VOD[];
 }
 

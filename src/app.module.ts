@@ -8,7 +8,7 @@ import AdminJS from 'adminjs';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ContentsModule } from './contents/content.module';
+import { ContentModule } from './contents/content.module';
 import { PlatformModule } from './platform/platform.module';
 import { ParserModule } from './parser/parser.module';
 
@@ -24,7 +24,7 @@ import { ParserModule } from './parser/parser.module';
       autoLoadEntities: true,
       synchronize: true, // Set false in production
     }),
-    ContentsModule,
+    ContentModule,
     PlatformModule,
     ParserModule,
     AdminModule.createAdminAsync({

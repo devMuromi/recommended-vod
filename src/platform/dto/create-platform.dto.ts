@@ -1,3 +1,3 @@
-export class CreateContentDto {
+export class CreatePlatformDto {
   readonly name: string;
 }

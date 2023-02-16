@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { NotFoundException } from '@nestjs/common/exceptions';
 import { InjectRepository } from '@nestjs/typeorm';
-import { type } from 'os';
 import { DataSource, Repository } from 'typeorm';
 
 import { CreateContentDto, UpdateContentDto } from './dto/content.dto';
